@@ -1,0 +1,33 @@
+<div class="container-fluid content">
+  <table class="table-class">
+    <thead>
+      <tr id="thead-tr" class="row justify-content-center">
+        <th class="col-12 col-md-6 text-left caret-parent" (click)="sortproduct('name',!order)">Product Name
+          <span class="caret">
+            <i *ngIf="sortByRow === 'name' ? order : true" class="fa fa-thin fa-caret-up" [ngClass]="(sortByRow === 'name') ? 'cart-colour' : ''"></i>
+            <i *ngIf="sortByRow === 'name' ? !order : true" class="fa fa-thin fa-caret-down" [ngClass]="(sortByRow === 'name') ? 'cart-colour' : ''"></i>
+          </span>
+        </th>
+        <th class="col-12 col-md-3 caret-parent" (click)="sortproduct('price',!order)">Price
+          <span class="caret">
+            <i *ngIf="sortByRow === 'price' ? order : true" class="fa fa-thin fa-caret-up" [ngClass]="(sortByRow === 'price') ? 'cart-colour' : ''"></i>
+            <i *ngIf="sortByRow === 'price' ? !order : true" class="fa fa-thin fa-caret-down" [ngClass]="(sortByRow === 'price') ? 'cart-colour' : ''"></i>
+          </span>
+        </th>
+        <th class="col-12 col-md-3 caret-parent" (click)="sortproduct('category',!order)">Category
+          <span class="caret">
+            <i *ngIf="sortByRow === 'category' ? order : true" class="fa fa-thin fa-caret-up" [ngClass]="(sortByRow === 'category') ? 'cart-colour' : ''"></i>
+            <i *ngIf="sortByRow === 'category' ? !order : true" class="fa fa-thin fa-caret-down" [ngClass]="(sortByRow === 'category') ? 'cart-colour' : ''"></i>
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row justify-content-center" *ngFor="let product of products;let i = index;trackBy:trackItem">
+        <td class="col-12 col-md-6 text-left">{{product.name}}</td>
+        <td class="col-12 col-md-3">{{product.price}}</td>
+        <td class="col-12 col-md-3">{{product.category}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
